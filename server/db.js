@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
+const config = require("./config");
 
-mongoose.connect("mongodb://127.0.0.1:27017/chatapp")
+mongoose.connect(config.mongodbUri)
 .then(() => console.log("MongoDB Connected"))
-.catch(err => console.log(err));
+.catch(err => console.error("MongoDB Connection Error:", err));
 
 module.exports = mongoose;

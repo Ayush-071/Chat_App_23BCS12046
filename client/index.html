@@ -11,11 +11,24 @@
 <div class="container">
 
     <div class="sidebar">
-        <h2>👤 User</h2>
-        <input id="username" placeholder="Enter username">
-        <button onclick="join()">Join</button>
+        <!-- Auth View -->
+        <div id="auth-view">
+            <h2>👤 Authenticate</h2>
+            <input id="username" placeholder="Enter username" type="text" autocomplete="username">
+            <input id="password" placeholder="Enter password" type="password" autocomplete="current-password" style="margin-top: 5px;">
+            <div class="auth-buttons" style="display: flex; gap: 5px; margin-top: 8px;">
+                <button onclick="login()" style="flex: 1;">Login</button>
+                <button onclick="register()" style="flex: 1;">Register</button>
+            </div>
+            <div id="auth-status" style="margin-top: 8px; font-size: 12px; color: #ff6b6b; font-weight: bold; min-height: 18px;"></div>
+        </div>
 
-        <ul id="users"></ul>
+        <!-- Chat Session View (hidden initially) -->
+        <div id="session-view" style="display: none;">
+            <h2>👤 <span id="display-username"></span></h2>
+            <button onclick="logout()" style="width: 100%; margin-bottom: 10px;">Logout</button>
+            <ul id="users"></ul>
+        </div>
     </div>
 
     <div class="chat-area">
