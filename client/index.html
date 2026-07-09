@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat App</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="sidebar">
+        <h2>👤 User</h2>
+        <input id="username" placeholder="Enter username">
+        <button onclick="join()">Join</button>
+
+        <ul id="users"></ul>
+    </div>
+
+    <div class="chat-area">
+
+        <div class="chat-header">
+            <h3>💬 Chat</h3>
+
+            <div class="tabs">
+                <button id="privateTab" class="active" onclick="switchTab('private')">Private</button>
+                <button id="groupTab" onclick="switchTab('group')">Group</button>
+                <button onclick="toggleMode()">🌗</button>
+            </div>
+        </div>
+
+        <div id="messages"></div>
+
+        <div id="typing"></div>
+
+        <div class="input-area">
+            <input id="toUser" readonly placeholder="Select user">
+            <input id="message" placeholder="Type message...">
+            <button onclick="send()">Send</button>
+        </div>
+
+    </div>
+</div>
+
+<audio id="notifSound" src="https://www.soundjay.com/buttons/sounds/button-3.mp3"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>

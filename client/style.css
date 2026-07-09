@@ -1,0 +1,270 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    color: white;
+    height: 100vh;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    width: 300px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    padding: 20px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== INPUT ===== */
+.sidebar input {
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    margin-bottom: 10px;
+    background: rgba(255,255,255,0.15);
+    color: white;
+}
+
+/* ===== BUTTON ===== */
+.sidebar button {
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.sidebar button:hover {
+    transform: scale(1.05);
+}
+
+.sidebar button:active {
+    transform: scale(0.95);
+}
+
+/* ===== USER LIST ===== */
+#users {
+    margin-top: 15px;
+    overflow-y: auto;
+}
+
+/* USER ITEM */
+#users li {
+    list-style: none;
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* HOVER EFFECT */
+#users li:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateX(5px);
+}
+
+/* ACTIVE USER */
+#users li.active {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+}
+
+/* USER PREVIEW */
+#users li div {
+    font-size: 11px;
+    opacity: 0.7;
+}
+
+/* UNREAD */
+.unread {
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* ===== CHAT AREA ===== */
+.chat-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== HEADER ===== */
+.chat-header {
+    padding: 15px 20px;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ===== TABS ===== */
+.tabs button {
+    margin-left: 10px;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: none;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tabs button:hover {
+    transform: scale(1.1);
+}
+
+.tabs .active {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+}
+
+/* ===== MESSAGES ===== */
+#messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* MESSAGE BOX */
+.message {
+    max-width: 60%;
+    padding: 12px 15px;
+    margin: 8px 0;
+    border-radius: 18px;
+    animation: fadeIn 0.3s ease;
+}
+
+/* SENT */
+.sent {
+    align-self: flex-end;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+}
+
+/* RECEIVED */
+.received {
+    align-self: flex-start;
+    background: rgba(255,255,255,0.2);
+}
+
+/* ===== TYPING INDICATOR ===== */
+#typing {
+    font-size: 12px;
+    padding-left: 20px;
+    color: #ccc;
+    height: 18px;
+}
+
+/* ===== INPUT AREA ===== */
+.input-area {
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+    background: rgba(0,0,0,0.4);
+}
+
+.input-area input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    background: rgba(255,255,255,0.15);
+    color: white;
+}
+
+.input-area input:focus {
+    box-shadow: 0 0 10px #00c6ff;
+}
+
+/* SEND BUTTON */
+.input-area button {
+    width: 120px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+}
+
+.input-area button:hover {
+    transform: scale(1.05);
+}
+
+/* ===== SCROLLBAR ===== */
+#messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+#messages::-webkit-scrollbar-thumb {
+    background: #00c6ff;
+    border-radius: 10px;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== LIGHT MODE ===== */
+body.light {
+    background: #f5f5f5;
+    color: black;
+}
+
+body.light .sidebar {
+    background: #fff;
+    color: black;
+}
+
+body.light .chat-header {
+    background: #ddd;
+}
+
+body.light #messages {
+    background: #fafafa;
+}
+
+body.light .received {
+    background: #ddd;
+    color: black;
+}
+
+body.light .sent {
+    background: #4facfe;
+}
+
+body.light input {
+    background: #eee;
+    color: black;
+}
+
+body.light .input-area {
+    background: #ddd;
+}
